@@ -1,6 +1,6 @@
 # Memory Behavior Rules
 
-> This document defines how an Agent should interact with the OptMem file structure.
+> This document defines how an Agent should interact with the MemWitness file structure.
 > These rules are designed to be framework-agnostic — any Agent that can read/write text files can follow them.
 
 ---

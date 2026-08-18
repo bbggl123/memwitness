@@ -1,4 +1,4 @@
-# Contributing to OptMem
+# Contributing to MemWitness
 
 Thank you for your interest in contributing!
 
@@ -11,7 +11,7 @@ Thank you for your interest in contributing!
 - Fix typos, clarify language, add missing sections
 
 ### 🧪 Validation
-- Test OptMem with a different Agent framework (Claude Code, Codex, LangChain, etc.)
+- Test MemWitness with a different Agent framework (Claude Code, Codex, LangChain, etc.)
 - Report your results: what worked, what didn't, what was missing
 - Submit a guide for your framework to `guides/`
 
@@ -22,7 +22,7 @@ Thank you for your interest in contributing!
 - Suggest improvements to the self-improvement loop
 
 ### 🚫 What Not to Contribute
-- Code implementations (OptMem is a design pattern, not a code library)
+- Code implementations (MemWitness is a design pattern, not a code library)
 - Database schemas or migration scripts
 - Framework-specific integrations as PRs — write a guide instead
 
@@ -35,7 +35,7 @@ Thank you for your interest in contributing!
 
 ## Guidelines
 
-- **Keep it framework-agnostic** — OptMem's value is that it works anywhere
+- **Keep it framework-agnostic** — MemWitness's value is that it works anywhere
 - **Keep examples anonymous** — don't include real user data or personal information
 - **Follow the existing style** — Markdown, consistent heading structure, concise language
 - **Test your changes** — if you modify a rule, explain why the old rule was insufficient

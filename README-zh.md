@@ -1,4 +1,4 @@
-# OptMem — AI Agent 的开放持久化记忆方案
+# MemWitness — AI Agent 的开放持久化记忆方案
 
 > 一种基于文件的零依赖记忆模式，让任意 AI Agent 的会话都能变成可验证、可压缩、可自我进化的知识库。
 
@@ -15,7 +15,7 @@
 
 ## 解决方案
 
-OptMem 不是一个代码库，而是一种**设计模式 + 文件约定**，任何 Agent 框架都可以采用：
+MemWitness 不是一个代码库，而是一种**设计模式 + 文件约定**，任何 Agent 框架都可以采用：
 
 - **纯文件** —— 全部用 Markdown，Git 可追踪，人类可读，兼容 Obsidian。零运行时依赖
 - **追加式日志** —— `memory/log/YYYY-MM-DD.md`，只增不改。任何高层记忆事实都可以从原始日志重建。这就是证据链
@@ -26,7 +26,7 @@ OptMem 不是一个代码库，而是一种**设计模式 + 文件约定**，任
 
 ## 为什么用文件，不用数据库？
 
-属性 | OptMem（文件） | MemGPT（数据库） | LangMem（Python）
+属性 | MemWitness（文件） | MemGPT（数据库） | LangMem（Python）
 --- | --- | --- | ---
 运行时依赖 | **无** | PostgreSQL + Python | Python 3.10+
 人类可读 | **是** | 否（SQL/JSON） | 部分
@@ -35,12 +35,12 @@ Git 版本化 | **是** | 否 | 否
 可验证证据 | **是（追加式）** | 否 | 否
 部署时间 | **秒级**（复制文件） | 分钟+（建库） | 分钟（pip install）
 
-**接受的取舍**：OptMem 不给你毫秒级检索或自动 embedding 搜索。你得到的是一个可信任、可审计、随时可迁移的系统。对于大多数 Agent 用途（个人助手、编程辅助、研究伙伴），这是正确的取舍。
+**接受的取舍**：MemWitness 不给你毫秒级检索或自动 embedding 搜索。你得到的是一个可信任、可审计、随时可迁移的系统。对于大多数 Agent 用途（个人助手、编程辅助、研究伙伴），这是正确的取舍。
 
 ## 仓库结构
 
 ```
-optmem/
+memwitness/
 ├── README.md                          ← 英文版
 ├── README-zh.md                       ← 中文版（你在这里）
 ├── spec/                              ← 设计哲学
@@ -68,8 +68,8 @@ optmem/
 
 ```bash
 # 1. 克隆骨架模板
-git clone https://github.com/bbggl123/optmem.git
-cd optmem/templates/skeleton
+git clone https://github.com/bbggl123/memwitness.git
+cd memwitness/templates/skeleton
 
 # 2. 填写模板文件
 #    - MEMORY.md        ← 导航索引
@@ -94,7 +94,7 @@ cd optmem/templates/skeleton
 
 ## 框架无关
 
-OptMem 最初在 [QwenPaw](https://github.com/agentscope-ai/QwenPaw) 上开发和验证，但此模式与框架无关。`rules/` 目录中的 Agent 行为指令可适配到：
+MemWitness 最初在 [QwenPaw](https://github.com/agentscope-ai/QwenPaw) 上开发和验证，但此模式与框架无关。`rules/` 目录中的 Agent 行为指令可适配到：
 
 - Claude Code / Opus
 - OpenAI Codex
@@ -102,7 +102,7 @@ OptMem 最初在 [QwenPaw](https://github.com/agentscope-ai/QwenPaw) 上开发�
 - 自定义 Agent 框架（LangChain、CrewAI、AutoGen 等）
 - 任何能读写 Markdown 文件的系统
 
-详见 [`guides/adopters.md`](https://github.com/bbggl123/optmem/blob/main/guides/adopters.md)。
+详见 [`guides/adopters.md`](https://github.com/bbggl123/memwitness/blob/main/guides/adopters.md)。
 
 ## 许可证
 

@@ -1,8 +1,8 @@
-# OptMem — Open Persistent Memory for AI Agents
+# MemWitness — Open Persistent Memory for AI Agents
 
 > A file-based, zero-dependency memory pattern that turns any AI Agent's session into a verifiable, compressible, self-improving knowledge base.
 
-[![License](https://img.shield.io/badge/license-MIT-blue.svg)](https://github.com/bbggl123/optmem/blob/main/LICENSE)
+[![License](https://img.shield.io/badge/license-MIT-blue.svg)](https://github.com/bbggl123/memwitness/blob/main/LICENSE)
 [![Zero Dependencies](https://img.shield.io/badge/dependencies-0-brightgreen.svg)]()
 [![Format](https://img.shield.io/badge/format-Markdown-orange.svg)]()
 
@@ -19,7 +19,7 @@ Every AI Agent has a memory problem:
 
 ## The Solution
 
-OptMem is not a code library. It's a **design pattern + file convention** that any Agent framework can adopt:
+MemWitness is not a code library. It's a **design pattern + file convention** that any Agent framework can adopt:
 
 - **Pure files** — everything is Markdown. Git-tracked. Human-readable. Obsidian-compatible. Zero runtime dependencies
 - **Append-only logs** — a `memory/log/YYYY-MM-DD.md` that is never edited. Every higher-level memory fact can be reconstructed from the raw log. This is the evidence chain
@@ -30,7 +30,7 @@ OptMem is not a code library. It's a **design pattern + file convention** that a
 
 ## Why Files, Not Databases?
 
-| Property | OptMem (Files) | MemGPT (DB) | LangMem (Python) |
+| Property | MemWitness (Files) | MemGPT (DB) | LangMem (Python) |
 |---|---|---|---|
 | Runtime deps | **None** | PostgreSQL + Python | Python 3.10+ |
 | Human readable | **Yes** | No (SQL/JSON) | Partial |
@@ -39,12 +39,12 @@ OptMem is not a code library. It's a **design pattern + file convention** that a
 | Verifiable evidence | **Yes (append-only)** | No | No |
 | Deploy time | **Seconds** (copy files) | Minutes+ (DB setup) | Minutes (pip install) |
 
-**Trade-off accepted**: OptMem does not give you sub-millisecond retrieval or automatic embedding search. You get a system you can trust, audit, and take anywhere. For most Agent use cases (personal assistants, coding helpers, research companions), that's the right trade.
+**Trade-off accepted**: MemWitness does not give you sub-millisecond retrieval or automatic embedding search. You get a system you can trust, audit, and take anywhere. For most Agent use cases (personal assistants, coding helpers, research companions), that's the right trade.
 
 ## Repository Structure
 
 ```
-optmem/
+memwitness/
 ├── README.md                          ← You are here
 ├── spec/                              ← Design philosophy
 │   ├── philosophy.md                  ← Why files, not databases
@@ -71,8 +71,8 @@ optmem/
 
 ```bash
 # 1. Clone the skeleton
-git clone https://github.com/bbggl123/optmem.git
-cd optmem/templates/skeleton
+git clone https://github.com/bbggl123/memwitness.git
+cd memwitness/templates/skeleton
 
 # 2. Fill in the template files
 #    - MEMORY.md        ← your navigation index
@@ -97,7 +97,7 @@ cd optmem/templates/skeleton
 
 ## Framework-Agnostic
 
-OptMem was originally developed and validated on [QwenPaw](https://github.com/agentscope-ai/QwenPaw), but the pattern is framework-independent. The `rules/` directory contains Agent behavior instructions that can be adapted to:
+MemWitness was originally developed and validated on [QwenPaw](https://github.com/agentscope-ai/QwenPaw), but the pattern is framework-independent. The `rules/` directory contains Agent behavior instructions that can be adapted to:
 
 - Claude Code / Opus
 - OpenAI Codex

@@ -1,6 +1,6 @@
 # Conflict Arbitration
 
-> When new information contradicts an existing memory fact, OptMem never silently overwrites. This document defines the conflict arbitration process.
+> When new information contradicts an existing memory fact, MemWitness never silently overwrites. This document defines the conflict arbitration process.
 
 ---
 

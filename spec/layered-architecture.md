@@ -1,6 +1,6 @@
 # Four-Layer Memory Architecture
 
-> OptMem organizes memory into four layers, from raw data to distilled personality. Each layer has a distinct purpose, format, and update rule.
+> MemWitness organizes memory into four layers, from raw data to distilled personality. Each layer has a distinct purpose, format, and update rule.
 
 ```
 L3  Personality Summary    ←  Stable user portrait, auto-injected every session
@@ -87,8 +87,8 @@ Clusters of L1 facts grouped by context, with recency and relevance signals. The
 ```
 ## 2026-08-04 Daily Summary
 - Learned about TencentDB Agent Memory architecture
-- Compared four-layer structure with OptMem — architecture is consistent
-- User confirmed OptMem is worth open-sourcing
+- Compared four-layer structure with MemWitness — architecture is consistent
+- User confirmed MemWitness is worth open-sourcing
 - Action item: prepare OpenDesign-inspired PRD requirements list
 ```
 
@@ -169,7 +169,7 @@ Every layer can be rebuilt from the layer below it. The system is lossless in th
 
 ## Comparison with Other Frameworks
 
-| Layer | OptMem | MemGPT | LangMem | TencentDB |
+| Layer | MemWitness | MemGPT | LangMem | TencentDB |
 |---|---|---|---|---|
 | L0 Raw | Append-only Markdown logs | Messages table (DB) | Embeddings (vector) | Local files + DB |
 | L1 Atomic | Tagged facts in topics/ | Core memory slots | Vector chunks | Structured cards |

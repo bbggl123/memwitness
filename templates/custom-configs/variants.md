@@ -1,6 +1,6 @@
 # Custom Configurations
 
-> Variants of the OptMem skeleton for different use cases.
+> Variants of the MemWitness skeleton for different use cases.
 
 ---
 

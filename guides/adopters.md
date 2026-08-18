@@ -1,12 +1,12 @@
 # Framework Adoption Guide
 
-> OptMem is framework-agnostic. This guide explains how to integrate it with various Agent frameworks and platforms.
+> MemWitness is framework-agnostic. This guide explains how to integrate it with various Agent frameworks and platforms.
 
 ---
 
 ## Core Integration Principle
 
-OptMem doesn't require any framework-specific code. The integration is purely about **giving the Agent access to the memory files** and **instructing it to follow the rules**.
+MemWitness doesn't require any framework-specific code. The integration is purely about **giving the Agent access to the memory files** and **instructing it to follow the rules**.
 
 For any framework, the integration steps are:
 
@@ -20,20 +20,20 @@ For any framework, the integration steps are:
 ## QwenPaw
 
 ### Integration
-QwenPaw has native memory support that is compatible with the OptMem structure:
+QwenPaw has native memory support that is compatible with the MemWitness structure:
 
 1. Place `memory/` in the Agent's workspace directory
-2. QwenPaw's built-in `memory_search` tool works with the OptMem file structure
+2. QwenPaw's built-in `memory_search` tool works with the MemWitness file structure
 3. The `MEMORY.md` rules are compatible with QwenPaw's memory system
 4. Add `rules/` content to the Agent's system prompt
 
 ### What's Different
 - QwenPaw adds embedding-based semantic search on top of the file structure
-- QwenPaw has `recall_history` for cross-session retrieval — OptMem uses file reading for the same purpose
-- OptMem's append-only log complements QwenPaw's context compression
+- QwenPaw has `recall_history` for cross-session retrieval — MemWitness uses file reading for the same purpose
+- MemWitness's append-only log complements QwenPaw's context compression
 
 ### Compatibility
-✅ Fully compatible. OptMem is the portable subset of QwenPaw's memory system.
+✅ Fully compatible. MemWitness is the portable subset of QwenPaw's memory system.
 
 ---
 
@@ -41,7 +41,7 @@ QwenPaw has native memory support that is compatible with the OptMem structure:
 
 ### Integration
 1. Place `memory/` in the project directory
-2. Add a `.claude/CLAUDE.md` (or equivalent instruction file) that references the OptMem rules
+2. Add a `.claude/CLAUDE.md` (or equivalent instruction file) that references the MemWitness rules
 3. Instruct Claude to:
    - Read `MEMORY.md` and `profile.md` at session start
    - Append to `memory/log/YYYY-MM-DD.md` during conversation
@@ -51,7 +51,7 @@ QwenPaw has native memory support that is compatible with the OptMem structure:
 ```markdown
 ## Memory System
 
-I use an OptMem-based memory system. Follow these rules:
+I use an MemWitness-based memory system. Follow these rules:
 
 1. **Startup**: Read `memory/MEMORY.md`, `memory/profile.md`, and `memory/preferences.md`
 2. **During conversation**: Append significant events to `memory/log/YYYY-MM-DD.md` with `[HH:MM] [tag]: content` format
@@ -63,7 +63,7 @@ Full rules: `memory/rules/memory-behavior-rules.md`
 ```
 
 ### Compatibility
-✅ Compatible. Claude's file access + instruction system maps directly to OptMem.
+✅ Compatible. Claude's file access + instruction system maps directly to MemWitness.
 
 ---
 
@@ -72,7 +72,7 @@ Full rules: `memory/rules/memory-behavior-rules.md`
 ### Integration
 1. Place `memory/` in the project directory
 2. Add instructions to the `.codex/` directory or system prompt
-3. Instruct Codex to follow the OptMem behavior rules
+3. Instruct Codex to follow the MemWitness behavior rules
 
 ### Sample System Prompt Addition
 ```
@@ -93,12 +93,12 @@ You have a memory system in the `memory/` directory. Follow these conventions:
 
 ### Integration
 1. Create a custom memory class that wraps file I/O
-2. Implement `load_memory_variables` to read OptMem files
+2. Implement `load_memory_variables` to read MemWitness files
 3. Implement `save_context` to append to the log
 
 ### Sample Implementation Pattern
 ```python
-class OptMemMemory(BaseMemory):
+class MemWitnessMemory(BaseMemory):
     def __init__(self, memory_path: str):
         self.memory_path = Path(memory_path)
     
@@ -114,19 +114,19 @@ class OptMemMemory(BaseMemory):
 ```
 
 ### Compatibility
-⚠️ Requires custom integration code. LangChain's built-in memory (vector store, etc.) is different from OptMem's file approach.
+⚠️ Requires custom integration code. LangChain's built-in memory (vector store, etc.) is different from MemWitness's file approach.
 
 ---
 
 ## CrewAI
 
 ### Integration
-1. Use OptMem files as shared context between crew members
+1. Use MemWitness files as shared context between crew members
 2. Each Agent in the crew reads the same memory files
 3. Use `task_callback` to write to the log after each task
 
 ### Compatibility
-⚠️ Works as shared context. CrewAI's native memory is different but OptMem can supplement it.
+⚠️ Works as shared context. CrewAI's native memory is different but MemWitness can supplement it.
 
 ---
 
@@ -138,7 +138,7 @@ class OptMemMemory(BaseMemory):
 3. Use file I/O for logging (AutoGen Agents have file access)
 
 ### Compatibility
-⚠️ Works with file access. AutoGen's conversation state is separate from OptMem.
+⚠️ Works with file access. AutoGen's conversation state is separate from MemWitness.
 
 ---
 
@@ -146,13 +146,13 @@ class OptMemMemory(BaseMemory):
 
 ### Integration
 1. Identify where the Agent reads its initial context
-2. Add OptMem file reading to that initialization
+2. Add MemWitness file reading to that initialization
 3. Identify where the Agent can write files
-4. Add OptMem logging to that write path
-5. Add OptMem rules to the Agent's instruction set
+4. Add MemWitness logging to that write path
+5. Add MemWitness rules to the Agent's instruction set
 
 ### Compatibility
-✅ Always compatible. OptMem is pure text files — any system with file I/O can use it.
+✅ Always compatible. MemWitness is pure text files — any system with file I/O can use it.
 
 ---
 

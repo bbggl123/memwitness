@@ -1,6 +1,6 @@
 # [stated] Label System
 
-> Every fact in OptMem carries an epistemic tag. This document defines the tag taxonomy, when to use each tag, and why it matters.
+> Every fact in MemWitness carries an epistemic tag. This document defines the tag taxonomy, when to use each tag, and why it matters.
 
 ---
 
@@ -83,7 +83,7 @@
 **Examples**:
 ```
 - [learned] Studied Three.js Scene/Camera/Renderer basics
-- [learned] Learned about the OptMem layered architecture from TencentDB comparison
+- [learned] Learned about the MemWitness layered architecture from TencentDB comparison
 ```
 
 **Rules**:
@@ -95,7 +95,7 @@
 ## Why Tags Matter
 
 ### 1. Truth Guarantee
-The user can always distinguish what they said (`[stated]`) from what the Agent guessed (`[inferred]`). This is the core trust property of OptMem.
+The user can always distinguish what they said (`[stated]`) from what the Agent guessed (`[inferred]`). This is the core trust property of MemWitness.
 
 ### 2. Conflict Resolution
 When two facts contradict, the tag tells you which one has higher authority:
